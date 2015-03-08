@@ -8,10 +8,14 @@ from blog.models import Comment
 class PostAdmin(admin.ModelAdmin):
 	fieldsets = [
         (None,               {'fields': ['title']}),
-        (None, {'fields': ['author','text','is_public','upd_date']})
+        (None, {'fields': ['author','text','is_public']}),
+        ('Published', {'fields': ['pub_date']}),
+         ('Update time', {'fields': ['upd_date']}),
     ]
 class CommentAdmin(admin.ModelAdmin):
-	fields=('author','text','post')
+	fieldsets=[('Post',{'fields':['post']}),
+	('Text',{'fields':['text','pub_date']}),
+	]
       #  ('Date',{'fields':['pub_date','upd_date']})	
 
 admin.site.register(Post,PostAdmin)
