@@ -5,16 +5,12 @@ from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from blog.api import PostResource,CommentResource
 from blog import views
 post=PostResource()
-v1_api = Api(api_name='v1')
-v1_api.register(PostResource())
-v1_api.register(CommentResource())
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'hw002.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^api/',include(v1_api.urls)),
-    url(r'^api/v1/post/(?P<blog_id>\d+)/$', views.post, name='detail'),
-    url(r'^api/',include(post.urls)),
+    url(r'^api/v1/post/(?P<blog_id>\d+)/$', views.post, name='post'),
+  
 )
