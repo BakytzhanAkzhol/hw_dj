@@ -10,4 +10,13 @@ class Post(models.Model):
      is_public=models.BooleanField(default=False)
 
      def __str__(self):
-     	return self.title+" // "+ self.title;
+     	return self.title;
+
+class Comment(models.Model):
+	author=models.CharField(max_length=50)
+	text=models.CharField(max_length=300)
+	pub_date=models.DateTimeField(auto_now_add = timezone.now)
+	post= post = models.ForeignKey(Post, related_query_name="fk")
+
+	def __str__(self):
+		return __selt.text__
