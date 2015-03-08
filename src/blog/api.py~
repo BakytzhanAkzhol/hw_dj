@@ -4,6 +4,8 @@ from blog.models import Post
 from blog.models import Comment
 from tastypie.authorization import Authorization
 
+
+
 class PostResource(ModelResource):
     class Meta:
         queryset = Post.objects.all()
