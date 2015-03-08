@@ -3,7 +3,7 @@ from django.contrib import admin
 from tastypie.api import Api
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from blog.api import PostResource,CommentResource
-
+from blog import views
 post=PostResource()
 v1_api = Api(api_name='v1')
 v1_api.register(PostResource())
@@ -15,5 +15,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/',include(v1_api.urls)),
+    url(r'^api/v1/(?P<blog_id>\d+)/post/$', views.post, name='detail'),
     url(r'^api/',include(post.urls)),
 )
