@@ -15,6 +15,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/',include(v1_api.urls)),
-    url(r'^api/v1/(?P<blog_id>\d+)/post/$', views.post, name='detail'),
+    url(r'^api/v1/post/(?P<blog_id>\d+)/$', views.post, name='detail'),
     url(r'^api/',include(post.urls)),
 )
