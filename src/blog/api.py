@@ -8,7 +8,6 @@ class PostResource(ModelResource):
     author = fields.CharField(attribute="author")
     title = fields.CharField(attribute="title")
     text = fields.CharField(attribute="text")
-    is_public = fields.BooleanField(attribute="is_public")
     comments = fields.ToManyField('blog.api.CommentResource', 'comment_set', null=True)
 
     class Meta:
