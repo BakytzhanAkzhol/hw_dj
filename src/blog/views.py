@@ -14,7 +14,7 @@ def post(request,blog_id):
 		comments=Comment.objects.filter(post=blog_id)
 		serialized_data=serializers.serialize("json",data)
 		serialized_comments=serializers.serialize("json",comments)
-		return JsonResponse({'post':serialized_data,'comments':serialized_comments})
+		return JsonResponse("[{\"post\":"+serialized_data+",\"comments\":"+serialized_comments+"}]	")
 	elif request.method=='DELETE':
 		objects = Blog.objects.get(pk=blog_id)
 		objects.delete()
