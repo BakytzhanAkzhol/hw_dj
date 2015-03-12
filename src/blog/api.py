@@ -8,7 +8,7 @@ class PostResource(ModelResource):
     author = fields.CharField(attribute="author")
     title = fields.CharField(attribute="title")
     text = fields.CharField(attribute="text")
-    comments = fields.ToManyField('blog.api.CommentResource', 'comment_set', null=True)
+    comments = fields.ToManyField('blog.api.CommentResource', 'comment_set',full=True, null=True)
 
     class Meta:
         queryset = Post.objects.all()
